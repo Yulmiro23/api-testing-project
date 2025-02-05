@@ -8,6 +8,11 @@ from endpoints.put_meme import PutMeme
 from faker import Faker
 
 
+# Для проверки авторизации я сделала следующую логику:
+# в локальном файле (token.txt) сохраняю токен после его получения
+# при следующем запуске тестов проверяю - существует ли файл с токеном
+# если файл существует, считываю токен и проверяю, работает ли он
+# если токен не работает, получаю новый, перезаписываю в файл новый токен
 @pytest.fixture(scope='session')
 def authorization_api():
     authorization_session = Authorization()
