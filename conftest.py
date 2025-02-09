@@ -26,7 +26,7 @@ def authorization_api():
 
 
 @pytest.fixture()
-def created_meme_id(authorization_api):
+def get_meme_id(authorization_api):
     data = {
         "text": "mem with cat",
         "url": "https://surl.li/mkporg",
