@@ -15,3 +15,7 @@ class PutMeme(Endpoint):
 
     def check_put(self, data):
         assert self.json['info'] == data['info']
+
+    def check_unchanged_data(self, data):
+        assert (self.json['text'] == data['text'] and self.json['url'] == data['url']
+                and self.json['tags'] == data['tags'] and self.json['info'] == data['info'])
