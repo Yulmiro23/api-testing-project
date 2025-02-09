@@ -26,7 +26,7 @@ def authorization_api():
 
 
 @pytest.fixture()
-def setup_and_teardown(authorization_api):
+def created_meme_id(authorization_api):
     data = {
         "text": "mem with cat",
         "url": "https://surl.li/mkporg",
@@ -44,22 +44,22 @@ def setup_and_teardown(authorization_api):
 
 
 @pytest.fixture()
-def create_get_one():
+def get_one_meme_api():
     return GetMeme()
 
 
 @pytest.fixture()
-def create_get_all():
+def get_all_memes_api():
     return GetAllMemes()
 
 
 @pytest.fixture()
-def create_post_obj():
+def post_meme_api():
     return PostMeme()
 
 
 @pytest.fixture()
-def teardown(authorization_api):
+def meme_cleanup(authorization_api):
     meme_id_list = []
     yield meme_id_list
     meme_for_delete = DeleteMeme()
@@ -68,7 +68,7 @@ def teardown(authorization_api):
 
 
 @pytest.fixture()
-def setup(authorization_api):
+def new_meme_id(authorization_api):
     data = {
         "text": "mem with cat",
         "url": "https://surl.li/mkporg",
@@ -83,12 +83,12 @@ def setup(authorization_api):
 
 
 @pytest.fixture()
-def create_put_obj():
+def put_meme_api():
     return PutMeme()
 
 
 @pytest.fixture()
-def create_delete_obj():
+def delete_meme_api():
     return DeleteMeme()
 
 

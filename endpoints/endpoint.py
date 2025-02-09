@@ -5,7 +5,7 @@ class Endpoint:
     json = None
 
 
-    def check_status_code(self):
+    def assert_status_200(self):
         assert self.response.status_code == 200, 'Error: not 200'
 
 
@@ -13,17 +13,17 @@ class Endpoint:
         assert self.json['id'] == meme_id, 'Error: wrong id'
 
 
-    def check_not_found(self):
+    def assert_status_404(self):
         assert self.response.status_code == 404, 'Error: not 404'
 
 
-    def check_not_unauthorized(self):
+    def assert_status_401(self):
         assert self.response.status_code == 401, 'Error: not 401'
 
 
-    def check_bad_request(self):
+    def assert_status_400(self):
         assert self.response.status_code == 400, 'Error: not 400'
 
 
-    def check_forbidden(self):
+    def assert_status_403(self):
         assert self.response.status_code == 403, 'Error: not 403'
